@@ -14,7 +14,7 @@ class DoctorHomePageLeftButton extends StatelessWidget {
           child: Container(),
         ),
         Padding(
-          padding: const EdgeInsets.only(left: 20, top: 30),
+          padding: const EdgeInsets.only(right: 20, top: 30),
           child: Container(
             height: 100,
             width: 200,
