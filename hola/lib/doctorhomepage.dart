@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:hola/consultaiondetails.dart';
 import 'package:hola/generalwarddetails.dart';
@@ -39,41 +38,21 @@ class _DoctorHomePageState extends State<DoctorHomePage> {
             SingleChildScrollView(
               child: Column(
                 children: [
-                  InkWell(
-                    onTap: () {
-                      Navigator.of(context).push(
-                        MaterialPageRoute(
-                          builder: (context) => const GeneralWardDetails(),
-                        ),
-                      );
-                    },
-                    child: DoctorHomePageRightButton(
-                        displayText: 'GENERAL\nWARD DETAILS'),
-                  ),
-                  InkWell(
-                    onTap: () {
-                      Navigator.of(context).push(
-                        MaterialPageRoute(
-                          builder: (context) => const IcuPatientsDetails(),
-                        ),
-                      );
-                    },
-                    child:
-                        DoctorHomePageLeftButton(displayText: 'ICU\nPATIENTS'),
-                  ),
-                  InkWell(onTap: () {
-                    Navigator.of(context).push(MaterialPageRoute(builder: (context) => const LabReportDetails(),),);
-                  },
-                  child:
-                  DoctorHomePageRightButton(displayText: 'LAB\nREPORT'),),
-                  InkWell(onTap: () {
-                    Navigator.of(context).push(MaterialPageRoute(builder: (context) => const OutPatientsDetails(),),);
-                  },child:
-                  DoctorHomePageLeftButton(displayText: 'OUT\nPATIENTS'),),
-                  InkWell(onTap: () {
-                    Navigator.of(context).push(MaterialPageRoute(builder: (context) => const ConsultationsDetails(),),);
-                  },child:
-                  DoctorHomePageRightButton(displayText: 'CONSULTATIONS'),),
+                  DoctorHomePageRightButton(
+                      displayText: 'GENERAL\nWARD DETAILS',
+                      goto: const GeneralWardDetails()),
+                  DoctorHomePageLeftButton(
+                      displayText: 'ICU\nPATIENTS',
+                      goto: const IcuPatientsDetails()),
+                  DoctorHomePageRightButton(
+                      displayText: 'LAB\nREPORT',
+                      goto: const LabReportDetails()),
+                  DoctorHomePageLeftButton(
+                      displayText: 'OUT\nPATIENTS',
+                      goto: const OutPatientsDetails()),
+                  DoctorHomePageRightButton(
+                      displayText: 'CONSULTATIONS',
+                      goto: const ConsultationsDetails()),
                 ],
               ),
             )

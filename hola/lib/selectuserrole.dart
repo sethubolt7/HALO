@@ -16,7 +16,7 @@ class _SelectUserRoleState extends State<SelectUserRole> {
     String userName = "";
     String passWord = "";
     void verifyLogin() {
-      if (userName == "doc1" && passWord == "doc1") {
+      if (userName.trim() == "doc1" && passWord == "doc1") {
         Navigator.of(context).pushReplacement(
             MaterialPageRoute(builder: (context) => const DoctorHomePage()));
       } else {
@@ -66,8 +66,11 @@ class _SelectUserRoleState extends State<SelectUserRole> {
                     Padding(
                       padding: const EdgeInsets.all(30.0),
                       child: TextField(
+                        onSubmitted: (value) {
+                          verifyLogin();
+                        },
                         onChanged: (value) {
-                          userName = value;
+                            userName = value;
                         },
                         decoration: InputDecoration(
                           hintText: 'DOCTOR ID',
@@ -84,11 +87,14 @@ class _SelectUserRoleState extends State<SelectUserRole> {
                       ),
                     ),
                     Padding(
-                      padding:
-                          const EdgeInsets.only(left: 30, right: 30, bottom: 20),
+                      padding: const EdgeInsets.only(
+                          left: 30, right: 30, bottom: 20),
                       child: TextField(
+                        onSubmitted: (value) {
+                          verifyLogin();
+                        },
                         onChanged: (value) {
-                          passWord = value;
+                            passWord = value;
                         },
                         decoration: InputDecoration(
                           hintText: 'PASSWORD',
