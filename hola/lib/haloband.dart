@@ -1,22 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:hola/haloband.dart';
 import 'package:hola/widgets.dart';
 
-class IcuPatientsDetails extends StatefulWidget {
-  const IcuPatientsDetails({super.key});
+
+class HolaBand extends StatefulWidget {
+  const HolaBand({super.key});
 
   @override
-  State<IcuPatientsDetails> createState() => _IcuPatientsDetailsState();
+  State<HolaBand> createState() => _HolaBandState();
 }
 
-class _IcuPatientsDetailsState extends State<IcuPatientsDetails> {
+class _HolaBandState extends State<HolaBand> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         backgroundColor:
-            Color.fromARGB(255, 255, 255, 255), //const Color(0xFF794D81),
+            const Color.fromARGB(255, 255, 255, 255), //const Color(0xFF794D81),
         title: const Center(
           child: Text(
             "DOCTOR ID: DOC-1",
@@ -66,14 +66,14 @@ class _IcuPatientsDetailsState extends State<IcuPatientsDetails> {
                             Row(
                               children: [
                                 Text(
-                                  "Name:",
+                                  "Name & Age:",
                                   style: TextStyle(
                                       fontWeight: FontWeight.w900,
                                       color: Colors.black87,fontSize: 20),
                                 ),
                                 Spacer(),
                                 Text(
-                                  "Vignesh",
+                                  "Vignesh & 20",
                                   style: TextStyle(
                                       fontWeight: FontWeight.w900,
                                       color: Colors.black87,fontSize: 20),
@@ -87,14 +87,14 @@ class _IcuPatientsDetailsState extends State<IcuPatientsDetails> {
                             Row(
                               children: [
                                 Text(
-                                  "Gender Age:",
+                                  "Diesease:",
                                   style: TextStyle(
                                       fontWeight: FontWeight.w900,
                                       color: Colors.black87,fontSize: 20),
                                 ),
                                 Spacer(),
                                 Text(
-                                  "M & 20",
+                                  "Tuberculosis",
                                   style: TextStyle(
                                       fontWeight: FontWeight.w900,
                                       color: Colors.black87,fontSize: 20),
@@ -133,8 +133,9 @@ class _IcuPatientsDetailsState extends State<IcuPatientsDetails> {
                     ),
                   ),
                 const SizedBox(height: 30),
-                CustomButton(goto: const HolaBand(), text: "HALO BAND",width: 400,),
-                CustomButton(goto: const HolaBand(), text: "HALO CAM",width: 400,),
+
+                Center(child: PatientsParameters(value: "27", unit: "deg", text: "Temperature")),
+                Center(child: PatientsParameters(value: "67", unit: "bpm", text: "Heart Rate"))
                 ],
               ),
             )
