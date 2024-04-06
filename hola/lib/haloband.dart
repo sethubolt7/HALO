@@ -1,7 +1,7 @@
+import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:hola/widgets.dart';
-
 
 class HolaBand extends StatefulWidget {
   const HolaBand({super.key});
@@ -11,6 +11,24 @@ class HolaBand extends StatefulWidget {
 }
 
 class _HolaBandState extends State<HolaBand> {
+  final databaseReference = FirebaseDatabase.instance.reference();
+  late Map<String, dynamic> lastChildData;
+
+  @override
+  void initState() {
+    super.initState();
+    getLastChildData();
+  }
+
+  void getLastChildData() async {
+    DatabaseEvent dataSnapshot = await databaseReference.child('UsersData/zjBqasPGGghF6Womq53tJwjlIlV2/readings').once();
+    Map<dynamic, dynamic> readings = dataSnapshot.snapshot as Map;
+    String lastKey = readings.keys.last;
+    print(lastKey);
+    setState(() {
+      lastChildData = readings[lastKey];
+    });
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -69,14 +87,16 @@ class _HolaBandState extends State<HolaBand> {
                                   "Name & Age:",
                                   style: TextStyle(
                                       fontWeight: FontWeight.w900,
-                                      color: Colors.black87,fontSize: 20),
+                                      color: Colors.black87,
+                                      fontSize: 20),
                                 ),
                                 Spacer(),
                                 Text(
                                   "Vignesh & 20",
                                   style: TextStyle(
                                       fontWeight: FontWeight.w900,
-                                      color: Colors.black87,fontSize: 20),
+                                      color: Colors.black87,
+                                      fontSize: 20),
                                 )
                               ],
                             ),
@@ -90,14 +110,16 @@ class _HolaBandState extends State<HolaBand> {
                                   "Diesease:",
                                   style: TextStyle(
                                       fontWeight: FontWeight.w900,
-                                      color: Colors.black87,fontSize: 20),
+                                      color: Colors.black87,
+                                      fontSize: 20),
                                 ),
                                 Spacer(),
                                 Text(
                                   "Tuberculosis",
                                   style: TextStyle(
                                       fontWeight: FontWeight.w900,
-                                      color: Colors.black87,fontSize: 20),
+                                      color: Colors.black87,
+                                      fontSize: 20),
                                 )
                               ],
                             ),
@@ -132,10 +154,13 @@ class _HolaBandState extends State<HolaBand> {
                       ),
                     ),
                   ),
-                const SizedBox(height: 30),
-
-                Center(child: PatientsParameters(value: "27", unit: "deg", text: "Temperature")),
-                Center(child: PatientsParameters(value: "67", unit: "bpm", text: "Heart Rate"))
+                  const SizedBox(height: 30),
+                  Center(
+                      child: PatientsParameters(
+                          value: "27", unit: "deg", text: "Temperature")),
+                  Center(
+                      child: PatientsParameters(
+                          value: "67", unit: "bpm", text: "Heart Rate"))
                 ],
               ),
             )

@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "217409404792",
+    "firebase_url": "https://aurasync-wearable-device-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "aurasync-wearable-device",
+    "storage_bucket": "aurasync-wearable-device.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:217409404792:android:41074b21de537e6825528d",
+        "android_client_info": {
+          "package_name": "com.example.hola"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAwYJIwO1G_4ZKZL3wUHJBDGBo71-UrfeI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
